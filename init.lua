@@ -26,4 +26,5 @@ spec "user.markdown"
 spec "user.bigfiles-nvim"
 spec "user.noice"
 spec "user.neoscroll"
+--spec "user.catppuccin"
 require("user.lazy")
