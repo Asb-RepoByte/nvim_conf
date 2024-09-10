@@ -72,8 +72,24 @@ function M.config()
     "yamlls",
     "clangd",
     "rust_analyzer",
-    "jedi_language_server",
+    "pylsp",
+    --"pyright",
+    --"jedi_language_server",
   }
+  
+local function print_table(tbl, indent)
+    indent = indent or 0
+    local indentation = string.rep("  ", indent)
+
+    for key, value in pairs(tbl) do
+        if type(value) == "table" then
+            print(indentation .. tostring(key) .. ":")
+            print_table(value, indent + 1)
+        else
+            print(indentation .. tostring(key) .. ": " .. tostring(value))
+        end
+    end
+end
 
   local default_diagnostic_config = {
     signs = {
@@ -101,7 +117,7 @@ function M.config()
 
   vim.diagnostic.config(default_diagnostic_config)
 
-  for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
+  for _, sign in ipairs(vim.tbl_get(default_diagnostic_config, "signs", "values") or {}) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
   end
 
@@ -114,6 +130,7 @@ function M.config()
       on_attach = M.on_attach,
       capabilities = M.common_capabilities(),
     }
+
 
     local require_ok, settings = pcall(require, "user.lspsettings." .. server)
     if require_ok then
