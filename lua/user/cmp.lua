@@ -15,6 +15,9 @@ local M = {
       event = "InsertEnter",
     },
     {
+        "kristijanhusak/vim-dadbod-completion"
+    },
+    {
       "hrsh7th/cmp-path",
       event = "InsertEnter",
     },
@@ -113,14 +116,17 @@ function M.config()
       format = function(entry, vim_item)
         vim_item.kind = icons.kind[vim_item.kind]
         vim_item.menu = ({
-          nvim_lsp = "NvimLsp",
-          nvim_lua = "NvimLua",
-          luasnip = "LuaSnip",
-          buffer = "Buffer",
-          path = "Path",
-          emoji = "Emoji",
+          nvim_lsp = "[NvimLsp]",
+          nvim_lua = "[NvimLua]",
+          luasnip = "[LuaSnip]",
+          buffer = "[Buffer]",
+          path = "[Path]",
+          emoji = "[Emoji]",
         })[entry.source.name]
 
+        if entry.source.name == "vim-dadbod-completion" then
+            vim_item.menu = "[DB]"
+        end
         if entry.source.name == "emoji" then
           vim_item.kind = icons.misc.Smiley
           vim_item.kind_hl_group = "CmpItemKindEmoji"
@@ -163,12 +169,13 @@ function M.config()
     },
   }
 
-    cmp.setup.filetype({"sql", "mysql"}, {
-        sources = {
-            {name = "vim-dadbod-completion"},
-            {name = "buffer"}
-        },
-    })
+  cmp.setup.filetype({"sql"}, {
+      sources = {
+          {name = "vim-dadbod-completion"},
+          {name = "buffer"}
+      },
+  })
+
 end
 
 return M
