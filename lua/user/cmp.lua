@@ -108,6 +108,7 @@ function M.config()
       }),
     },
     formatting = {
+    expandable_indicator = true,
       fields = { "kind", "abbr", "menu" },
       format = function(entry, vim_item)
         vim_item.kind = icons.kind[vim_item.kind]
@@ -161,6 +162,13 @@ function M.config()
       ghost_text = false,
     },
   }
+
+    cmp.setup.filetype({"sql", "mysql"}, {
+        sources = {
+            {name = "vim-dadbod-completion"},
+            {name = "buffer"}
+        },
+    })
 end
 
 return M

@@ -28,6 +28,15 @@ function M.config()
     },
 
     textobjects = {
+        swap = {
+            enable = true,
+            swap_next = {
+                ["<leader>c"] = "@parameter.inner",
+            },
+            swap_previous = {
+                ["<leader>C"] = "@parameter.inner",
+            },
+        },
         select = {
         enable = true,
         -- Automatically jump forward to textobj, similar to targets.vim
@@ -54,7 +63,7 @@ function M.config()
         selection_modes = {
             ['@parameter.outer'] = 'v', -- charwise
             ['@function.outer'] = 'V', -- linewise
-            ['@class.outer'] = '<c-v>', -- blockwise
+            ['@class.outer'] = 'V', -- linewise
     },
         -- If you set this to `true` (default is `false`) then any textobject is
         -- extended to include preceding or succeeding whitespace. Succeeding
@@ -65,7 +74,7 @@ function M.config()
         -- * query_string: eg '@function.inner'
         -- * selection_mode: eg 'v'
         -- and should return true or false
-        include_surrounding_whitespace = true,
+        include_surrounding_whitespace = false,
     },
 },
 

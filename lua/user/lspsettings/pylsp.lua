@@ -13,7 +13,7 @@ return {
                 },
                 flake8 = {
                     enabled = true,
-                    ignore = {"F403", "F405", "E501"},
+                    ignore = {"F403", "F405", "E501", "E701", "E704"},
                 },
             }
         }

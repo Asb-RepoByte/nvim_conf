@@ -13,7 +13,7 @@ local options = {
 	hidden = true,				-- allow to switch the buffer without need to safe.
 	wrap = false,				-- cut the line when to long.
 	linebreak = true,			-- cut the line in convenient place.
-	scrolloff = 999,				-- set the distance to the end of window when scrolling.
+	scrolloff = 10,				-- set the distance to the end of window when scrolling.
 	clipboard = "unnamedplus",	-- set neovim the use the system clipboard.
 	ignorecase = true,			-- ignore the upper case when searching.
 	smartcase = true,			-- override ingorcase when there is upper case in the search.
@@ -25,7 +25,7 @@ local options = {
 	foldmethod = "syntax",		-- fold sections of the file base of the syntax of the language.
 	foldlevelstart = 99,		-- all the section will be visible with nofolds been apply.
 	completeopt = {"menuone", "noinsert", "noselect"},		-- make some condition on the popup menu for auto complition.
-    virtualedit = "block",      -- enable virtualedit to select a rectangle in visual block mode
+    virtualedit = {"block", "onemore"},      -- enable virtualedit to select a rectangle in visual block mode
     inccommand = "split",       -- seting the split window to show changes
 }
 

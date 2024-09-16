@@ -13,15 +13,16 @@ function M.config()
     { "<leader>an", "<cmd>$tabnew<cr>", desc = "New Empty Tab" },
     { "<leader>ao", "<cmd>tabonly<cr>", desc = "Only" },
     { "<leader>b", group = "Buffers" },
-    { "<leader>d", group = "Debug" },
+    { "<leader>d", group = "Debug/DB" },
     { "<leader>f", group = "Find" },
     { "<leader>g", group = "Git" },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "NOHL" },
     { "<leader>l", group = "LSP" },
     { "<leader>p", group = "Plugins" },
-    { "<leader>q", "<cmd>confirm q<CR>", desc = "Quit" },
+    { "<leader>q", "<cmd>bd<CR>", desc = "Close Buffer" },
     { "<leader>t", group = "Test" },
     { "<leader>v", "<cmd>vsplit<CR>", desc = "Split" },
+    {"<leader>db", "<cmd>DBUIToggle<CR>", desc="Toogle DBui"}
   }
 
   local which_key = require "which-key"
