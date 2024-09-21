@@ -39,8 +39,10 @@ keymap("n", "<S-h>", ":bprevious<cr>", opts)
 keymap("v", ">", ">gv", opts)
 keymap("v", "<", "<gv", opts)
 -- move text
-keymap("v", "<A-j>", ":m '>+3<cr>gv=gv", opts)
-keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", opts)
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
+--keymap("v", "<A-j>", ":m '>+3<cr>gv=gv", opts)
+--keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", opts)
 -- set the regiester of the del to not be 
 --keymap("v", "p", '"_dp', opts)
 keymap("v", "d", '"_d', opts)

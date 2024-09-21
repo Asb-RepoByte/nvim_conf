@@ -16,7 +16,7 @@ function M.config()
       --terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
       persist_size = true,
       persist_mode = true, -- if set to true (default) the previous terminal mode will be remembered
-      direction = 'float',
+      direction = "float", -- here you could change the type of the terminal you get vertical | horizontal | float | tab
       close_on_exit = true, -- close the terminal window when the process exits
        -- Change the default shell. Can be a string or a function returning a string
       --shell = vim.o.shell,

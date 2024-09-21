@@ -1,7 +1,7 @@
 -- set some options for me
 local options = {
 	cursorline = true,				-- display a line on the place of the cursor
-	mouse = "",					-- set the usebility of the mouse
+	mouse = "a",					-- set the usebility of the mouse
 	number = true,				-- set the number of line to be visible
 	relativenumber = true,		-- set the relative number
 	tabstop = 4,				-- set the <tab> to 4 spaces
@@ -27,6 +27,7 @@ local options = {
 	completeopt = {"menuone", "noinsert", "noselect"},		-- make some condition on the popup menu for auto complition.
     virtualedit = {"block", "onemore"},      -- enable virtualedit to select a rectangle in visual block mode
     inccommand = "split",       -- seting the split window to show changes
+    guicursor = "n-v-c:block,i:block-blinkwait300-blinkon200-blinkoff150"
 }
 
 -- actually applaying the options

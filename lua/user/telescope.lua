@@ -3,8 +3,11 @@ local M = {
   dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
       { "nvim-lua/plenary.nvim" },
+      {"nvim-telescope/telescope-project.nvim"},
+      {"pbnj/telescope-projects.nvim"}
     },
 }
+
 local function telescope_live_grep_open_files()
   require('telescope.builtin').live_grep { grep_open_files = true, prompt_title = 'Live Grep in Open Files',
   }
@@ -76,12 +79,12 @@ function M.config()
 
       find_files = {
         theme = "dropdown",
-        previewer = false,
+        previewer = true,
       },
 
       buffers = {
         theme = "dropdown",
-        previewer = false,
+        previewer = true,
         initial_mode = "normal",
         mappings = {
           i = {
