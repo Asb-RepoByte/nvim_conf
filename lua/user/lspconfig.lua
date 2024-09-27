@@ -34,7 +34,6 @@ function M.common_capabilities()
 end
 
 M.toggle_inlay_hints = function()
-  local bufnr = vim.api.nvim_get_current_buf()
   vim.lsp.inlay_hint.enable(false, nil)
 end
 
@@ -57,8 +56,8 @@ function M.config()
     { "<leader>laa", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", mode = "v" },
   }
 
-  local lspconfig = require "lspconfig"
-  local icons = require "user.icons"
+  local lspconfig = require("lspconfig")
+  local icons = require("user.icons")
 
   local servers = {
     "lua_ls",
@@ -73,23 +72,9 @@ function M.config()
     "clangd",
     "rust_analyzer",
     "pylsp",
-    --"pyright",
+    "pyright",
     --"jedi_language_server",
   }
-  
-local function print_table(tbl, indent)
-    indent = indent or 0
-    local indentation = string.rep("  ", indent)
-
-    for key, value in pairs(tbl) do
-        if type(value) == "table" then
-            print(indentation .. tostring(key) .. ":")
-            print_table(value, indent + 1)
-        else
-            print(indentation .. tostring(key) .. ": " .. tostring(value))
-        end
-    end
-end
 
   local default_diagnostic_config = {
     signs = {
@@ -115,16 +100,20 @@ end
     },
   }
 
+  -- setting a custom icons for hing and messages from the lsp
   vim.diagnostic.config(default_diagnostic_config)
 
   for _, sign in ipairs(vim.tbl_get(default_diagnostic_config, "signs", "values") or {}) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
   end
 
+  -- just make everything rounded
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
   require("lspconfig.ui.windows").default_options.border = "rounded"
 
+  -- actually doing the configuration for every server in servers
+  -- the basic idea that for every server in servers you can have corresponding file with the same name as the server in lspsettings and make your setup for the lsp over there
   for _, server in pairs(servers) do
     local opts = {
       on_attach = M.on_attach,
