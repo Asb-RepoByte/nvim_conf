@@ -25,6 +25,11 @@ M.on_attach = function(client, bufnr)
   if client.supports_method "textDocument/inlayHint" then
     vim.lsp.inlay_hint.enable(false, nil)
   end
+  -- now this is navic for code loaction detectin winbar basicly hey this is me
+  local navic = require("nvim-navic")
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
 end
 
 function M.common_capabilities()
@@ -70,7 +75,7 @@ function M.config()
     "yamlls",
     "clangd",
     "rust_analyzer",
-    "pylsp",
+    --"pylsp",
     "pyright",
     --"jedi_language_server",
   }
