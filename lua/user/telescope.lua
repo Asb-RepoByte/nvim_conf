@@ -18,8 +18,9 @@ function M.config()
   wk.add {
     { "<leader>bb", "<cmd>Telescope buffers previewer=false<cr>", desc = "Find" },
     { "<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
-    { "<leader>fc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
+    { "<leader>fc", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "find text in buffer"},
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+    { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "list symbol in buffer"},
     { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },
     { "<leader>fl", "<cmd>Telescope resume<cr>", desc = "Last Search" },
     { "<leader>fp", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", desc = "Projects" },

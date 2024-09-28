@@ -27,7 +27,8 @@ local options = {
 	completeopt = {"menuone", "noinsert", "noselect"},		-- make some condition on the popup menu for auto complition.
     virtualedit = {"block", "onemore"},      -- enable virtualedit to select a rectangle in visual block mode
     inccommand = "split",       -- seting the split window to show changes
-    guicursor = "n-v-c:block,i:block-blinkwait300-blinkon200-blinkoff150"
+    guicursor = "n-v-c:block,i:block-blinkwait300-blinkon200-blinkoff150",
+    laststatus = 3,             -- something recommended to do with avante Ai 
 }
 
 -- actually applaying the options
