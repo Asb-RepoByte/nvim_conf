@@ -12,6 +12,7 @@ function M.config()
     "cssls",
     "html",
     "ts_ls",
+    "jdtls",
     "bashls",
     "jsonls",
     "clangd",
