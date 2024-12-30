@@ -22,12 +22,14 @@ M.config = function()
             theme = "gruvbox",
             globalstatus = true,
         },
+        --[[
         winbar = {
             lualine_c = { get_location }
         },
         inactive_winbar = {
             lualine_c = {"%f"},
         }
+        --]]
     })
 end
 

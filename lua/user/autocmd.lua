@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Set tab width to 2 spaces for C++, C, and HTML files
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"cpp", "c", "html"},
+  pattern = {"cpp", "c", "html", "javascriptreact", "javascript"},
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2

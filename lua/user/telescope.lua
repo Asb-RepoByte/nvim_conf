@@ -41,6 +41,7 @@ function M.config()
       selection_strategy = "reset",
       path_display = { "smart" },
       color_devicons = true,
+      file_ignore_patterns = {"node_modules"},
       vimgrep_arguments = {
         "rg",
         "--color=never",
