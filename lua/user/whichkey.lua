@@ -4,8 +4,8 @@ local M = {
 
 function M.config()
   local mappings = {
-    { "<leader>;", "<cmd>tabnew | terminal<CR>", desc = "Term" },
-    { "<leader>T", group = "Treesitter" },
+    --{ "<leader>;", "<cmd>tabnew | terminal<CR>", desc = "Term" },
+    --{ "<leader>T", group = "Treesitter" },
     { "<leader><tab>", group = "Tab" },
     { "<leader><Tab>N", "<cmd>tabnew %<cr>", desc = "New Tab" },
     { "<leader><Tab>h", "<cmd>-tabnext<cr>", desc = "Move Left" },

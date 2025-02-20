@@ -16,3 +16,5 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = true
   end,
 })
+
+vim.cmd([[autocmd BufNewFile,BufRead *.vs,*.fs,*.vert,*.frag set filetype=glsl]])

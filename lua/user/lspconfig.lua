@@ -80,6 +80,7 @@ function M.config()
         "pyright",
         "jdtls",
         "arduino_language_server",
+        "glsl_analyzer",
         --"jedi_language_server",
     }
 
