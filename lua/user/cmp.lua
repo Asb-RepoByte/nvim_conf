@@ -38,6 +38,21 @@ local M = {
   },
 }
 
+local function load_project_words()
+    local project_vars = vim.fn.getcwd() .. "/.project_vars"
+    local words = {}
+
+    local file = io.open(project_vars, "r")
+    if file then
+        for line in file:lines() do
+            table.insert(words, { label = line }) -- Format for cmp
+        end
+        file:close()
+    end
+
+    return words
+end
+
 function M.config()
     local cmp = require "cmp"
     local luasnip = require "luasnip"
@@ -53,6 +68,13 @@ function M.config()
     end
 
     local icons = require "user.icons"
+
+    -- this is my stuff for add the global variables
+    cmp.register_source('project_vars', {
+        complete = function(_, _, callback)
+            callback(load_project_words())
+        end
+    })
 
     cmp.setup {
         snippet = {
@@ -115,6 +137,7 @@ function M.config()
             luasnip = "[LuaSnip]",
             buffer = "[Buffer]",
             path = "[Path]",
+            project_vars = "[ProjVars]",
             emoji = "[Emoji]",
             })[entry.source.name]
 
@@ -134,6 +157,7 @@ function M.config()
         end,
     },
     sources = {
+        {name = "project_vars"},
         { name = "copilot" },
         { name = "nvim_lsp" },
         { name = "luasnip" },

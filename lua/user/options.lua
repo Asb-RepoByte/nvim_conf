@@ -43,3 +43,4 @@ end
 
 vim.opt.undofile = true
 vim.opt.undodir = undodir
+vim.opt.complete:append("k") -- Enable dictionary-based completion
